@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import * as serviceWorker from "./serviceWorker";
 import "mobx-react-lite/batchingForReactDom";
 
+import "./styling/formstyling.css";
 import GlobalStyle from "./GlobalStyles";
 import Layout from "./components/Layout";
 import { GlobalStoreProvider } from "./components/state/globals";

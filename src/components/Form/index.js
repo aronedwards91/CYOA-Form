@@ -99,12 +99,15 @@ const schema = {
             },
             backgroundImgObjectFit: {
               type: "string",
-              title: "CSS image object fit setting for image",
+              title: "Object-fit",
+              description: "CSS object-fit setting for images",
               default: "cover",
             },
             backgroundGradient: {
               type: "string",
-              title: "list gradient colors as per css linear-gradient spec",
+              title: "Gradient colors",
+              description:
+                "list gradient colors as per css linear-gradient spec",
               default: "darkgreen, green, lightgreen",
             },
           },
@@ -112,13 +115,12 @@ const schema = {
         themeing: {
           type: "object",
           title: "App themeing",
-          description:
-            "Sets cyoa theme elements such as font & look",
+          description: "Sets cyoa theme elements such as font & look",
           properties: {
             fontName: {
               type: "string",
               title: "Font name",
-              default: "Roboto",
+              default: "None",
             },
             fontIsLink: {
               type: "boolean",
@@ -153,7 +155,8 @@ const schema = {
             borderStyle: {
               type: "string",
               title: "CSS Border style",
-              description: "use; none, hidden ,dotted, dashed, solid, double, groove, ridge, inset, outset.",
+              description:
+                "use; none, hidden ,dotted, dashed, solid, double, groove, ridge, inset, outset.",
               default: "double",
             },
           },

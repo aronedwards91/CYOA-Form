@@ -8,7 +8,7 @@ const Layout = () => (
   <>
     <BackgroundGradient />
     <Template>
-      <h1>CYOA Form</h1>
+      <h1>CYOA Form </h1>
       <CyoaForm />
     </Template>
   </>
@@ -17,7 +17,7 @@ const Layout = () => (
 const Template = styled.div`
   display: flex;
   flex-direction: column;
-  padding: calc(2rem + 2vw);
+  padding: calc(1rem + 2vw) calc(1rem + 1vw);
 `;
 
 Layout.propTypes = {
