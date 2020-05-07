@@ -5,12 +5,13 @@ import BackgroundGradient from "../Background";
 import CyoaForm from "../Form";
 
 const Layout = () => (
-  <BackgroundGradient>
+  <>
+    <BackgroundGradient />
     <Template>
       <h1>CYOA Form</h1>
       <CyoaForm />
     </Template>
-  </BackgroundGradient>
+  </>
 );
 
 const Template = styled.div`
