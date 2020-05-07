@@ -22,47 +22,38 @@ const schema = {
             maintext: {
               type: "string",
               title: "Main text color",
-              default: "#020202",
             },
             bgA: {
               type: "string",
               title: "Background gradient A",
-              default: "#628746",
             },
             bgB: {
               type: "string",
               title: "Background gradient B",
-              default: "#2E4E15",
             },
             mainBorder: {
               type: "string",
               title: "Main border color",
-              default: "#1A3407",
             },
             mainHighlight: {
               type: "string",
               title: "Main Highlight color",
-              default: "#BCFA0F",
             },
             charBgA: {
               type: "string",
               title: "Character panel gradient A",
-              default: "#90A437",
             },
             charBgB: {
               type: "string",
               title: "Character panel gradient B",
-              default: "#E7F6A4",
             },
             charText: {
               type: "string",
               title: "Character panel text color",
-              default: "#1f2406",
             },
             charBorder: {
               type: "string",
               title: "Character panel border color",
-              default: "#435200",
             },
           },
         },
@@ -75,17 +66,14 @@ const schema = {
             sidebarWidth: {
               type: "string",
               title: "Sidebar width on Desktop size",
-              default: "380px",
             },
             sidebarWidthDeskSm: {
               type: "string",
               title: "Sidebar width collapsed on desktop",
-              default: "120px",
             },
             sidebarWidthMobSm: {
               type: "string",
               title: "Sidebar height collapsed mobile",
-              default: "60px",
             },
           },
         },
@@ -104,14 +92,12 @@ const schema = {
               type: "string",
               title: "Object-fit",
               description: "CSS object-fit setting for images",
-              default: "cover",
             },
             backgroundGradient: {
               type: "string",
               title: "Gradient colors",
               description:
                 "list gradient colors as per css linear-gradient spec",
-              default: "darkgreen, green, lightgreen",
             },
           },
         },
@@ -123,7 +109,6 @@ const schema = {
             fontName: {
               type: "string",
               title: "Font name",
-              default: "None",
             },
             fontIsLink: {
               type: "boolean",
@@ -141,26 +126,22 @@ const schema = {
               maximum: 2.5,
               multipleOf: 0.01,
               title: "Font scaling",
-              default: 1.11,
             },
             sectionCornerRadius: {
               type: "string",
               title: "corner radius",
               description: "use css values; 10px, 0.4rem, 30%...",
-              default: "10px",
             },
             bordersWidth: {
               type: "string",
               title: "Main border width",
               description: "use css values; 10px, 0.4rem, 30%...",
-              default: "6px",
             },
             borderStyle: {
               type: "string",
               title: "CSS Border style",
               description:
                 "use; none, hidden ,dotted, dashed, solid, double, groove, ridge, inset, outset.",
-              default: "double",
             },
           },
         },
@@ -211,7 +192,6 @@ const schema = {
         setting: {
           type: "string",
           title: "Summary of setting",
-          default: "Another world...",
         },
       },
     },

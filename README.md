@@ -11,7 +11,7 @@ This form doesn't 'build' but infact just hase the b64 outputs of the original w
 ...
 
 #### TODO
-- correct output, testing, styling, validation
+- correct output, testing, styling, validation, expanded example
 
 #### Possible future additions
 - discount logic (requires bigger rewrite)

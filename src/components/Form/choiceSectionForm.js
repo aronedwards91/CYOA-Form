@@ -115,14 +115,176 @@ export default {
                 effect: {
                   type: "object",
                   title: "Effects of Choice",
+                  required: ["cost"],
                   properties: {
                     cost: {
                       type: "array",
                       title: "cost",
-                      description: "Each entry applies to each purchasing point type, if only fill in first rest will be 0.",
+                      minItems: 1,
+                      description:
+                        "Each entry applies to each 'Purchasing Point's type, if only fill in first rest will be 0.",
                       default: [10],
                       items: {
-                        type: "number",
+                        type: "integer",
+                      },
+                    },
+                    "char-profimg": {
+                      type: "string",
+                      format: "data-url",
+                      title: "Img for Character Profile",
+                    },
+                    "body-race": {
+                      type: "string",
+                      title: "Race Name",
+                    },
+                    "char-background": {
+                      type: "object",
+                      title: "Character Background",
+                      default: null,
+                      properties: {
+                        name: {
+                          type: "string",
+                          title: "Background Title",
+                        },
+                        desc: {
+                          type: "string",
+                          title: "Background Description",
+                        },
+                      },
+                    },
+                    "char-challenge": {
+                      type: "object",
+                      title: "Character's Challenge/goal",
+                      properties: {
+                        name: {
+                          type: "string",
+                          title: "Background Title",
+                        },
+                        desc: {
+                          type: "string",
+                          title: "Background Description",
+                        },
+                      },
+                    },
+                    "body-ability": {
+                      type: "object",
+                      title: "Character Add Ability'",
+                      properties: {
+                        name: {
+                          type: "string",
+                          title: "Ability Name",
+                        },
+                        power: {
+                          type: "string",
+                          title: "Ability Description",
+                        },
+                      },
+                    },
+                    "char-advdrawback": {
+                      type: "object",
+                      title: "Character Advantage & Drawback'",
+                      properties: {
+                        name: {
+                          type: "string",
+                          title: "Title",
+                        },
+                        adv: {
+                          type: "string",
+                          title: "Advantage",
+                        },
+                        drawback: {
+                          type: "string",
+                          title: "Drawback",
+                        },
+                      },
+                    },
+                    "char-drawback": {
+                      type: "object",
+                      title: "Character Drawback",
+                      properties: {
+                        name: {
+                          type: "string",
+                          title: "Title",
+                        },
+                        desc: {
+                          type: "string",
+                          title: "Description",
+                        },
+                      },
+                    },
+                    "char-allies": {
+                      type: "object",
+                      title: "Character Ally",
+                      properties: {
+                        name: {
+                          type: "string",
+                          title: "Title",
+                        },
+                        desc: {
+                          type: "string",
+                          title: "Description",
+                        },
+                        quantity: {
+                          type: "integer",
+                          minimum: 1,
+                          title: "Quantity",
+                        },
+                      },
+                    },
+                    "inv-items": {
+                      title: "Items",
+                      type: "array",
+                      uniqueItems: true,
+                      description: "Add Items",
+                      items: {
+                        type: "object",
+                        title: "Item",
+                        properties: {
+                          name: {
+                            type: "string",
+                            title: "Title",
+                          },
+                          desc: {
+                            type: "string",
+                            title: "Description",
+                          },
+                          quantity: {
+                            type: "integer",
+                            minimum: 1,
+                            title: "Quantity",
+                            default: 1,
+                          },
+                          icon: {
+                            type: "string",
+                            format: "data-url",
+                            title: "Optional: Item Icon",
+                          },
+                        },
+                      },
+                    },
+                    misc: {
+                      type: "object",
+                      title: "Character Custom Attribute",
+                      properties: {
+                        key: {
+                          type: "string",
+                          title: "Attribute Key",
+                          description:
+                            "All attributes with same key will be shown together.",
+                        },
+                        name: {
+                          type: "string",
+                          title: "Title",
+                        },
+                        desc: {
+                          type: "string",
+                          title: "Description",
+                        },
+                        quantity: {
+                          type: "integer",
+                          minimum: 1,
+                          title: "Quantity",
+                        },
                       },
                     },
                   },
