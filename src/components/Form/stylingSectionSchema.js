@@ -74,7 +74,8 @@ export default {
         backgroundImg: {
           type: "string",
           format: "data-url",
-          title: "Import an image for use as the background.",
+          title: "Background Image.",
+          description: "Import an image for use as the background.",
         },
         backgroundImgObjectFit: {
           type: "string",

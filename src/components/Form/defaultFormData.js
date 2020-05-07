@@ -11,7 +11,7 @@ const FormData = {
       maintext: `#000000`,
       bgA: "#620046",
       bgB: "#2E0015",
-      mainBorder: "#1F34B7",
+      mainBorder: "#4C004C",
       mainHighlight: "#AAAA0F",
       charBgA: "#902337",
       charBgB: "#3726A4",

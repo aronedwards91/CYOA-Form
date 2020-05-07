@@ -11,7 +11,8 @@ This form doesn't 'build' but infact just hase the b64 outputs of the original w
 ...
 
 #### TODO
-- correct output, builds app, testing, styling, validation, expanded example, json export/import
+-  testing, collapse effects, styling, validation, expanded example
+- json/export working - imported files not shown!
 
 #### Possible future additions
 - discount logic (requires bigger rewrite)
