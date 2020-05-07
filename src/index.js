@@ -1,19 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import * as serviceWorker from "./serviceWorker";
-import "mobx-react-lite/batchingForReactDom";
 
 import "./styling/formstyling.css";
 import GlobalStyle from "./GlobalStyles";
 import Layout from "./components/Layout";
-import { GlobalStoreProvider } from "./components/state/globals";
 
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyle />
-    <GlobalStoreProvider>
-        <Layout />
-    </GlobalStoreProvider>
+    <Layout />
   </React.StrictMode>,
   document.getElementById("root")
 );
