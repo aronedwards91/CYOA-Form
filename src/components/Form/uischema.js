@@ -33,6 +33,20 @@ const uiSchema = {
       fontIsLink: { "ui:widget": "hidden" },
     },
   },
+  charSetup: {
+    setting: { "ui:widget": "textarea" },
+  },
+  cyoa: {
+    intro: {
+      introText: { "ui:widget": "textarea" },
+      appendText: { "ui:widget": "textarea" },
+    },
+    // selections: {
+    //   items: {
+    //     style: { "ui:widget": "select" },
+    //   },
+    // },
+  },
 };
 
 export default uiSchema;

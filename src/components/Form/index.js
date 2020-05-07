@@ -1,6 +1,9 @@
 import React from "react";
 import Form from "@rjsf/core";
+
 import uiSchema from "./uischema";
+import FormData from "./defaultFormData";
+import ChoiceSection from "./choiceSectionForm";
 
 const schema = {
   title: "CYOA Form",
@@ -136,9 +139,9 @@ const schema = {
               type: "number",
               minimum: 0.5,
               maximum: 2.5,
-              multipleOf: 0.1,
+              multipleOf: 0.01,
               title: "Font scaling",
-              default: 1.1,
+              default: 1.11,
             },
             sectionCornerRadius: {
               type: "string",
@@ -163,6 +166,56 @@ const schema = {
         },
       },
     },
+    charSetup: {
+      type: "object",
+      title: "CYOA Character Setup",
+      properties: {
+        purchasing: {
+          type: "array",
+          minItems: 1,
+          uniqueItems: true,
+          description:
+            "An array of purchasing points, requires min 1, more than 4 may break mobile styling",
+          items: {
+            type: "object",
+            title: "Purchsing Points type",
+            properties: {
+              amount: {
+                type: "number",
+                minimum: 1,
+                maximum: 1000000,
+                multipleOf: 1,
+                title: "Starting value",
+                default: 1000,
+              },
+              FullName: {
+                type: "string",
+                title: "Full Name",
+                default: "Choice Points",
+              },
+              ShortName: {
+                type: "string",
+                title: "Short Name",
+                default: "CP",
+              },
+              icon: {
+                type: "string",
+                format: "data-url",
+                title: "Points Icon",
+                description:
+                  "Can use icon for points, recommend ~100x100, .png required for transparency",
+              },
+            },
+          },
+        },
+        setting: {
+          type: "string",
+          title: "Summary of setting",
+          default: "Another world...",
+        },
+      },
+    },
+    cyoa: ChoiceSection,
   },
 };
 
@@ -170,6 +223,7 @@ const CyoaForm = () => (
   <Form
     schema={schema}
     uiSchema={uiSchema}
+    formData={FormData}
     onChange={() => console.log("changed")}
     onSubmit={(evt) => console.log("submitted", evt)}
     onError={console.log("errors")}
