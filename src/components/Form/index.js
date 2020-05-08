@@ -22,7 +22,6 @@ const schema = {
 };
 
 const ContructApp = (data, eventData) => {
-  console.log("event", eventData.nativeEvent.submitter.value);
 
   if (eventData.nativeEvent.submitter.value === "build") {
     const form = CleanJson(data.formData);
@@ -42,26 +41,29 @@ const ContructApp = (data, eventData) => {
   }
 };
 
-const CleanJson = data => {
+const CleanJson = (data) => {
   const ChoicesData = data.cyoa.selections;
 
-  ChoicesData.forEach(choiceType => {
-    choiceType.choices.forEach(choice => {
-      Object.keys(choice.effect).forEach(key => {
-
+  ChoicesData.forEach((choiceType) => {
+    choiceType.choices.forEach((choice) => {
+      Object.keys(choice.effect).forEach((key) => {
         const Effect = choice.effect[key];
         // removes empty arrays
         if (key === "inv-items" && choice.effect["inv-items"].length === 0) {
           delete choice.effect["inv-items"];
-        // removes empty objects as cause bugs
-        } else if ( typeof Effect === 'object' && !Array.isArray(Effect) && isEmptyObj(Effect)) {
+          // removes empty objects as cause bugs
+        } else if (
+          typeof Effect === "object" &&
+          !Array.isArray(Effect) &&
+          isEmptyObj(Effect)
+        ) {
           delete choice.effect[key];
         }
       });
-    })
-  })
+    });
+  });
   return data;
-}
+};
 
 const importID = "importJump";
 const ExportJson = (data) => {
@@ -71,7 +73,6 @@ const ExportJson = (data) => {
     "application/json"
   );
 };
-
 
 const CyoaForm = () => {
   const [defaultFormData, setDefaultFormData] = useState(FormData);

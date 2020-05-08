@@ -11,8 +11,7 @@ This form doesn't 'build' but infact just hase the b64 outputs of the original w
 ...
 
 #### TODO
-- import aware img, styling, validation, expanded example, intro guide, contents links
-- json/export working - imported files not shown!
+- cost widget, styling, validation, expanded examples, intro guide, contents list at top
 - testing 
 
 #### Possible future additions

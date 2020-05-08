@@ -16,3 +16,12 @@ export const InputStyled = styled.input`
 export const ImportBtn = styled.button`
   text-align: center;
 `;
+
+export const SmImg = styled.img`
+  width: 80px;
+  height: 80px;
+  margin-right: 16px;
+  object-fit: cover;
+  border-top: 1px solid orange;
+  border-bottom: 1px solid orange;
+`;
