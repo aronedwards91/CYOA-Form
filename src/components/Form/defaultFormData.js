@@ -1,4 +1,5 @@
 const FormData = {
+  appData: { appversion: 2 },
   charSetup: {
     purchasing: [
       { FullName: "Choice Points", ShortName: "CP", amount: 1000, icons: null },
@@ -71,6 +72,51 @@ const FormData = {
             effect: {
               cost: [100],
               "body-race": "Martian",
+            },
+          },
+        ],
+      },
+      {
+        name: "1/ Challenge",
+        description: "Uh Oh..",
+        style: "boxes",
+        buy: {
+          unique: true,
+          max: 1,
+        },
+        choices: [
+          {
+            name: "Asteroid",
+            description: "An asteroid is coming",
+            effect: {
+              cost: [-50],
+              "char-challenge": {
+                name: "asteroid",
+                desc: "destruction.",
+              },
+            },
+          },
+          {
+            name: "Plague",
+            description: "The black plague reawakens",
+            effect: {
+              cost: [-100],
+              "char-challenge": {
+                name: "Plague",
+                desc: "death and horror.",
+              },
+              "char-advdrawback": {
+                name: "Plague doctor",
+                adv: "Cool mask",
+                drawback: "A lot of death",
+              },
+              "inv-items": [
+                {
+                  name: "Plague Mask",
+                  desc: "Nice beak.",
+                  quantity: 1,
+                },
+              ],
             },
           },
         ],

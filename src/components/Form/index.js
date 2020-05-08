@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Form from "@rjsf/core";
-import { createFile, runJSONFromUpload } from "../../utils";
+import { createFile, runJSONFromUpload, isEmptyObj } from "../../utils";
 import BuildTextObj from "../../filebreakdown";
 
 import uiSchema from "./uischema";
@@ -15,21 +15,21 @@ const schema = {
   title: "CYOA Form",
   type: "object",
   properties: {
-    styling: StylingSection,
     charSetup: CharSection,
     cyoa: ChoiceSection,
+    styling: StylingSection,
   },
 };
 
 const ContructApp = (data, eventData) => {
-  console.log("json", data);
   console.log("event", eventData.nativeEvent.submitter.value);
+
   if (eventData.nativeEvent.submitter.value === "build") {
-    data.formData.appData = { appversion: 2 };
+    const form = CleanJson(data.formData);
 
     const decodedData =
       window.atob(BuildTextObj.pre) +
-      JSON.stringify(data.formData) +
+      JSON.stringify(form) +
       window.atob(BuildTextObj.post);
 
     createFile(
@@ -42,6 +42,28 @@ const ContructApp = (data, eventData) => {
   }
 };
 
+const CleanJson = data => {
+  const ChoicesData = data.cyoa.selections;
+
+  ChoicesData.forEach(choiceType => {
+    choiceType.choices.forEach(choice => {
+      Object.keys(choice.effect).forEach(key => {
+
+        const Effect = choice.effect[key];
+        // removes empty arrays
+        if (key === "inv-items" && choice.effect["inv-items"].length === 0) {
+          delete choice.effect["inv-items"];
+        // removes empty objects as cause bugs
+        } else if ( typeof Effect === 'object' && !Array.isArray(Effect) && isEmptyObj(Effect)) {
+          delete choice.effect[key];
+        }
+      });
+    })
+  })
+  return data;
+}
+
+const importID = "importJump";
 const ExportJson = (data) => {
   createFile(
     JSON.stringify(data.formData),
@@ -49,7 +71,7 @@ const ExportJson = (data) => {
     "application/json"
   );
 };
-const importID = "importJump";
+
 
 const CyoaForm = () => {
   const [defaultFormData, setDefaultFormData] = useState(FormData);
