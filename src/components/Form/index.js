@@ -12,10 +12,16 @@ import CharSection from "./charSetupSectionSchema";
 import {
   PadWrapper,
   InputStyled,
-  ImportBtn,
   FancyBtn,
-  Header3,
+  hiddenBtn,
+  Header3
 } from "../StyledItems";
+
+const BackupString = {
+  backup: "backup",
+  build: "build"
+};
+const formId = "cyoaform";
 
 const schema = {
   title: "CYOA Form",
@@ -23,35 +29,16 @@ const schema = {
   properties: {
     charSetup: CharSection,
     cyoa: ChoiceSection,
-    styling: StylingSection,
-  },
-};
-
-const ContructApp = (data, eventData) => {
-  if (eventData.nativeEvent.submitter.value === "build") {
-    const form = CleanJson(data.formData);
-
-    const decodedData =
-      window.atob(BuildTextObj.pre) +
-      JSON.stringify(form) +
-      window.atob(BuildTextObj.post);
-
-    createFile(
-      decodedData,
-      `${data.formData.cyoa.header.title}.html`,
-      "text/html"
-    );
-  } else if (eventData.nativeEvent.submitter.value === "backup") {
-    ExportJson(data);
+    styling: StylingSection
   }
 };
 
-const CleanJson = (data) => {
+const CleanJson = data => {
   const ChoicesData = data.cyoa.selections;
 
-  ChoicesData.forEach((choiceType) => {
-    choiceType.choices.forEach((choice) => {
-      Object.keys(choice.effect).forEach((key) => {
+  ChoicesData.forEach(choiceType => {
+    choiceType.choices.forEach(choice => {
+      Object.keys(choice.effect).forEach(key => {
         const Effect = choice.effect[key];
         // removes empty arrays
         if (key === "inv-items" && choice.effect["inv-items"].length === 0) {
@@ -71,7 +58,7 @@ const CleanJson = (data) => {
 };
 
 const importID = "importJump";
-const ExportJson = (data) => {
+const ExportJson = data => {
   createFile(
     JSON.stringify(data.formData),
     `${data.formData.cyoa.header.title}.bkup.json`,
@@ -85,22 +72,51 @@ const CyoaForm = () => {
     console.log("file uploaded;");
     runJSONFromUpload(importID, setDefaultFormData);
   };
+
+  let submitAction = "build";
+  const buildJson = () => {
+    submitAction = BackupString.backup;
+    document.getElementById("formSubmitBtn").click();
+  };
+  const buildSite = () => {
+    submitAction = BackupString.build;
+    document.getElementById("formSubmitBtn").click();
+  };
+
+  const ContructApp = (data, e) => {
+    e.preventDefault();
+    if (submitAction === "build") {
+      const form = CleanJson(data.formData);
+
+      const decodedData =
+        window.atob(BuildTextObj.pre) +
+        JSON.stringify(form) +
+        window.atob(BuildTextObj.post);
+
+      createFile(
+        decodedData,
+        `${data.formData.cyoa.header.title}.html`,
+        "text/html"
+      );
+    } else if (submitAction === "backup") {
+      ExportJson(data);
+    }
+  };
+
   return (
     <>
       <Form
+        id={formId}
         schema={schema}
         uiSchema={uiSchema}
         formData={defaultFormData}
         onSubmit={ContructApp}
-        onError={(evt) => console.log("errors", evt)}
+        onError={evt => console.log("errors", evt)}
       >
+        <hiddenBtn type="submit" id="formSubmitBtn" />
         <PadWrapper>
-          <FancyBtn type="submit" name="submitButton" value="build">
-            Build Webpage
-          </FancyBtn>
-          <FancyBtn type="submit" name="submitButton" value="backup">
-            Backup as .json
-          </FancyBtn>
+          <FancyBtn onClick={buildSite}>Build Website</FancyBtn>
+          <FancyBtn onClick={buildJson}>Backup as .json</FancyBtn>
         </PadWrapper>
       </Form>
       <Header3>{"To apply backup, choose file below & hit import."}</Header3>

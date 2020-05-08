@@ -16,9 +16,12 @@ export const FancyBtn = styled.button`
   font-size: 13px;
   border-radius: 26px 0 26px 0;
   border: 2px solid lightcyan;
-  padding: 16px;
+  padding: 8px 16px;
   cursor: pointer;
 `;
+export const hiddenBtn = styled.button`
+  display: none;
+`
 export const Header3 = styled.h3`
   font-weight: normal;
   margin-left: 16px;

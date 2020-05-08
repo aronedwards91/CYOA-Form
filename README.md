@@ -12,7 +12,8 @@ This form doesn't 'build' but infact just hase the b64 outputs of the original w
 
 #### TODO
 - validation, expanded examples, contents list at top
-- testing 
+- testing
+- update text in pre string
 - Better cost, color widget?
 
 #### Possible future additions
