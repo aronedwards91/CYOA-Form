@@ -1,3 +1,5 @@
+import CustomField from "../CustomFieldTemplate";
+
 const uiSchema = {
   styling: {
     colors: {
@@ -41,11 +43,15 @@ const uiSchema = {
       introText: { "ui:widget": "textarea" },
       appendText: { "ui:widget": "textarea" },
     },
-    // selections: {
-    //   items: {
-    //     style: { "ui:widget": "select" },
-    //   },
-    // },
+    selections: {
+      items: {
+        choices: { 
+          items: {
+            effect: {"ui:FieldTemplate": CustomField}
+          }
+        },
+      },
+    },
   },
 };
 

@@ -114,7 +114,7 @@ export default {
                 },
                 effect: {
                   type: "object",
-                  title: "Effects of Choice",
+                  title: "Effects",
                   required: ["cost"],
                   properties: {
                     cost: {

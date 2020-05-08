@@ -11,7 +11,7 @@ This form doesn't 'build' but infact just hase the b64 outputs of the original w
 ...
 
 #### TODO
-- collapse effects, styling, validation, expanded example, intro guide, contents links
+- import aware img, styling, validation, expanded example, intro guide, contents links
 - json/export working - imported files not shown!
 - testing 
 
