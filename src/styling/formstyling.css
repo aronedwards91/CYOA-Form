@@ -16,7 +16,10 @@ legend {
 .field-description {
   font-size: 0.9rem;
   font-style: italic;
-  margin: 0.5rem 0 0.3rem;
+  margin: 0.5rem 0 0.8rem;
+  white-space: pre-line;
+  max-width: 80%;
+  line-height: 1.5;
 }
 
 .field {
@@ -31,8 +34,18 @@ label {
 }
 
 /* settings for custom array buttons */
-i.glyphicon { display: none; }
-.btn-add::after { content: '+ Add'; }
-.array-item-move-up::after { content: 'Move Up'; }
-.array-item-move-down::after { content: 'Move Down'; }
-.array-item-remove::after { content: '^ Remove ^'; }
+i.glyphicon {
+  display: none;
+}
+.btn-add::after {
+  content: "+ Add";
+}
+.array-item-move-up::after {
+  content: "Move Up";
+}
+.array-item-move-down::after {
+  content: "Move Down";
+}
+.array-item-remove::after {
+  content: "^ Remove ^";
+}

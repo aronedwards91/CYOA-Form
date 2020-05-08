@@ -3,12 +3,13 @@ import React from "react";
 import styled from "styled-components";
 import BackgroundGradient from "../Background";
 import CyoaForm from "../Form";
+import Header from "../Header";
 
 const Layout = () => (
   <>
     <BackgroundGradient />
     <Template>
-      <h1>CYOA Form </h1>
+      <Header />
       <CyoaForm />
     </Template>
   </>

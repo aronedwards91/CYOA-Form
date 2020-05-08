@@ -5,7 +5,8 @@ export default {
     colors: {
       type: "object",
       title: "App Color Styling",
-      description: "Color selection",
+      description:
+        "Select the color palette for the App, Character panel colors are for the panel which displays character information, the others are for the main choice area.",
       properties: {
         maintext: {
           type: "string",
@@ -69,7 +70,7 @@ export default {
       type: "object",
       title: "Background styling",
       description:
-        "Sets cyoa options area background, if image is false, uses gradient instead",
+        "Set a background Image, set how it centers/ is scaled, and if not providing a background image, a gradient can be set.",
       properties: {
         backgroundImg: {
           type: "string",
@@ -80,19 +81,20 @@ export default {
         backgroundImgObjectFit: {
           type: "string",
           title: "Object-fit",
-          description: "CSS object-fit setting for images",
+          description:
+            "CSS object-fit setting for images.\n [cover] retains aspect ratio, scales in size to fill area (expect cropping). [fill] loses aspect ratio, stretches to fill all 4 corners. [contain]/[scale-down] retains aspect ratio, scales down to ensure whole image is seen. [none] makes the image as big as it's pixel size, and centred.",
         },
         backgroundGradient: {
           type: "string",
           title: "Gradient colors",
-          description: "list gradient colors as per css linear-gradient spec",
+          description: "list gradient colors as per css linear-gradient spec, for more information see https://www.w3schools.com/css/css3_gradients.asp",
         },
       },
     },
     themeing: {
       type: "object",
       title: "App themeing",
-      description: "Sets cyoa theme elements such as font & look",
+      description: "Sets CYOA theme elements such as font & look",
       properties: {
         fontName: {
           type: "string",
@@ -118,7 +120,7 @@ export default {
         sectionCornerRadius: {
           type: "string",
           title: "corner radius",
-          description: "use css values; 10px, 0.4rem, 30%...",
+          description: "use css values, use 0 for square; 10px, 0.4rem, 30%...",
         },
         bordersWidth: {
           type: "string",
@@ -129,7 +131,7 @@ export default {
           type: "string",
           title: "CSS Border style",
           description:
-            "use; none, hidden ,dotted, dashed, solid, double, groove, ridge, inset, outset.",
+            "Use any of the following; none, hidden ,dotted, dashed, solid, double, groove, ridge, inset, outset.",
         },
       },
     },

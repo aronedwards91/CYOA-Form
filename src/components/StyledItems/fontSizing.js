@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import Settings from "../../cyoadata";
 
-const FontScale = Settings.styling.themeing.fontScaling;
+const FontScale = 1;
 
 export const HeaderLg = styled.span`
   font-size: calc(${FontScale} * 2rem + 2vw);

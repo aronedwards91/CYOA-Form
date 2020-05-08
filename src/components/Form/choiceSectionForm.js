@@ -1,15 +1,17 @@
 export default {
   type: "object",
   title: "Choices Setup",
+  description: "Setup the list of player choices.",
   properties: {
     header: {
       title: "App Header",
       type: "object",
-      description: "Setttings for Header design",
+      description: "Settings for the Page Header.",
       properties: {
         logo: {
           type: "string",
           format: "data-url",
+          description: "Give the page a logo.",
           title: "Small Header Logo",
         },
         title: {
@@ -28,6 +30,7 @@ export default {
     },
     intro: {
       title: "Setup World Introduction",
+      description: "Describe the world, the Sub-section is optional.",
       type: "object",
       properties: {
         title: {
@@ -52,28 +55,33 @@ export default {
       type: "array",
       minItems: 1,
       uniqueItems: true,
-      description: "Build a list of player choices",
+      title: "Choices",
+      description: "The types of choices a player can take.",
       items: {
         type: "object",
-        title: "Choice Type Data",
+        title: "Choice-type Settings",
         properties: {
           name: {
             type: "string",
-            title: "Choice Type Name",
+            title: "Name",
           },
           description: {
             type: "string",
-            title: "Choice Type Description",
+            title: "Description",
           },
           style: {
             type: "string",
-            title: "Choice Visual Style",
+            title: "Presentation Style",
+            description:
+              "Sets the style of the options, 'lines' are very wide and good for long descriptions, 'boxes' is for smaller options, and 'small boxes', is for very small options.",
             enum: ["lines", "boxes", "smallboxes"],
             enumNames: ["Lines", "Boxes", "Small Boxes"],
           },
           buy: {
             type: "object",
             title: "Purchase Options",
+            description:
+              "unique; means a choice may only be taken once. Max taken of type; limits how many in total can be taken of this type of choice.",
             properties: {
               unique: {
                 type: "boolean",
@@ -85,7 +93,7 @@ export default {
                 minimum: 1,
                 maximum: 100,
                 multipleOf: 1,
-                title: "Max of Type",
+                title: "Max taken of type",
                 default: 1000,
               },
             },
@@ -94,35 +102,38 @@ export default {
             type: "array",
             minItems: 2,
             uniqueItems: true,
-            description: "Choices available",
+            title: "Options",
+            description: "The options available to choose.",
             items: {
               type: "object",
-              title: "Choice Data",
+              title: "Option Settings",
               properties: {
                 name: {
                   type: "string",
-                  title: "Choice Name",
+                  title: "Name",
                 },
                 description: {
                   type: "string",
-                  title: "Choice Description",
+                  title: "Description",
                 },
                 img: {
                   type: "string",
                   format: "data-url",
-                  title: "Choice Img",
+                  title: "Image",
                 },
                 effect: {
                   type: "object",
                   title: "Effects",
+                  description:
+                    "Here you will set what picking an option does, whether that's updating a profile image or how much it costs to take the option. Options not set will be ignored.",
                   required: ["cost"],
                   properties: {
                     cost: {
                       type: "array",
-                      title: "cost",
+                      title: "Option Cost",
                       minItems: 1,
                       description:
-                        "Each entry applies to each 'Purchasing Point's type, if only fill in first rest will be 0.",
+                        "As a CYOA can have multiple types of purchase points (as set earlier), below you can set the cost for each, the first applying to the first purchase points type, the second box the second purchase points type. Any not given a value will default to 0.",
                       default: [10],
                       items: {
                         type: "integer",
@@ -131,15 +142,15 @@ export default {
                     "char-profimg": {
                       type: "string",
                       format: "data-url",
-                      title: "Img for Character Profile",
+                      title: "New Character Profile Image.",
                     },
                     "body-race": {
                       type: "string",
-                      title: "Race Name",
+                      title: "New Race",
                     },
                     "char-background": {
                       type: "object",
-                      title: "Character Background",
+                      title: "New Character Background",
                       default: null,
                       properties: {
                         name: {
@@ -154,7 +165,7 @@ export default {
                     },
                     "char-challenge": {
                       type: "object",
-                      title: "Character's Challenge/goal",
+                      title: "New Character Challenge/goal",
                       properties: {
                         name: {
                           type: "string",
@@ -168,7 +179,7 @@ export default {
                     },
                     "body-ability": {
                       type: "object",
-                      title: "Character Add Ability'",
+                      title: "Add Character Ability'",
                       properties: {
                         name: {
                           type: "string",
@@ -182,7 +193,7 @@ export default {
                     },
                     "char-advdrawback": {
                       type: "object",
-                      title: "Character Advantage & Drawback'",
+                      title: "Add Character Advantage & Drawback'",
                       properties: {
                         name: {
                           type: "string",
@@ -200,7 +211,7 @@ export default {
                     },
                     "char-drawback": {
                       type: "object",
-                      title: "Character Drawback",
+                      title: "Add Character Drawback",
                       properties: {
                         name: {
                           type: "string",
@@ -214,7 +225,7 @@ export default {
                     },
                     "char-allies": {
                       type: "object",
-                      title: "Character Ally",
+                      title: "Add Character Allies",
                       properties: {
                         name: {
                           type: "string",
@@ -232,17 +243,17 @@ export default {
                       },
                     },
                     "inv-items": {
-                      title: "Items",
+                      title: "Give Items to Character",
                       type: "array",
                       uniqueItems: true,
-                      description: "Add Items",
+                      description: "Multiple items can be given for each choice. An icon can be used, the best format is .png as they can be transparent, around 100x100 is a good size.",
                       items: {
                         type: "object",
                         title: "Item",
                         properties: {
                           name: {
                             type: "string",
-                            title: "Title",
+                            title: "Name",
                           },
                           desc: {
                             type: "string",
@@ -264,7 +275,8 @@ export default {
                     },
                     misc: {
                       type: "object",
-                      title: "Character Custom Attribute",
+                      title: "Add Character Custom Attribute",
+                      description: "Here a custom attribute can be added.",
                       properties: {
                         key: {
                           type: "string",
@@ -274,7 +286,7 @@ export default {
                         },
                         name: {
                           type: "string",
-                          title: "Title",
+                          title: "Name",
                         },
                         desc: {
                           type: "string",
@@ -284,6 +296,7 @@ export default {
                           type: "integer",
                           minimum: 1,
                           title: "Quantity",
+                          default: 1,
                         },
                       },
                     },

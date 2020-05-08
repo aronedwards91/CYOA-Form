@@ -4,13 +4,14 @@ export default {
   properties: {
     purchasing: {
       type: "array",
+      title: "Purchasing Points",
       minItems: 1,
       uniqueItems: true,
       description:
-        "An array of purchasing points, requires min 1, more than 4 may break mobile styling",
+        "To setup point purchasing, with which choices will be bought, setup at least one, and at most 4 (more will break mobile styling).",
       items: {
         type: "object",
-        title: "Purchsing Points type",
+        title: "Purchasing Points Settings",
         properties: {
           amount: {
             type: "number",
@@ -43,6 +44,7 @@ export default {
     setting: {
       type: "string",
       title: "Summary of setting",
+      description: "A short summary of the setting"
     },
   },
 };
