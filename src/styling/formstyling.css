@@ -1,8 +1,16 @@
-fieldset {
+body #root form fieldset {
   border: 2px solid #1a8b95;
   border-radius: 6px;
   padding: 16px 20px;
   margin-top: 12px;
+}
+fieldset .field:not(.field-object) {
+  padding: 4px 8px;
+  border-bottom: 1px solid aliceblue;
+  margin-bottom: 8px;
+}
+fieldset .field:last-child {
+  border-bottom: 1px solid transparent;
 }
 
 legend {
@@ -22,15 +30,23 @@ legend {
   line-height: 1.5;
 }
 
-.field {
-  padding: 4px 8px;
-  border-bottom: 1px solid aliceblue;
-  margin-bottom: 8px;
-}
-
 label {
   min-width: 320px;
   display: inline-block;
+}
+
+.btn-group {
+  margin-top: 8px;
+}
+
+.btn {
+  padding: 4px 8px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  border: 1px solid darkslategrey;
+  background: steelblue;
+  color: white;
+  margin: 0 16px;
 }
 
 /* settings for custom array buttons */

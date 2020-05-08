@@ -9,7 +9,13 @@ import ChoiceSection from "./choiceSectionForm";
 import StylingSection from "./stylingSectionSchema";
 import CharSection from "./charSetupSectionSchema";
 
-import { PadWrapper, InputStyled, ImportBtn } from "../StyledItems";
+import {
+  PadWrapper,
+  InputStyled,
+  ImportBtn,
+  FancyBtn,
+  Header3,
+} from "../StyledItems";
 
 const schema = {
   title: "CYOA Form",
@@ -22,7 +28,6 @@ const schema = {
 };
 
 const ContructApp = (data, eventData) => {
-
   if (eventData.nativeEvent.submitter.value === "build") {
     const form = CleanJson(data.formData);
 
@@ -89,16 +94,19 @@ const CyoaForm = () => {
         onSubmit={ContructApp}
         onError={(evt) => console.log("errors", evt)}
       >
-        <button type="submit" name="submitButton" value="build">
-          Build Webpage
-        </button>
-        <button type="submit" name="submitButton" value="backup">
-          Backup as .json
-        </button>
+        <PadWrapper>
+          <FancyBtn type="submit" name="submitButton" value="build">
+            Build Webpage
+          </FancyBtn>
+          <FancyBtn type="submit" name="submitButton" value="backup">
+            Backup as .json
+          </FancyBtn>
+        </PadWrapper>
       </Form>
+      <Header3>{"To apply backup, choose file below & hit import."}</Header3>
       <PadWrapper>
         <InputStyled type="file" id={importID} />
-        <ImportBtn onClick={importData}>Import Data</ImportBtn>
+        <FancyBtn onClick={importData}>Import Backup From File</FancyBtn>
       </PadWrapper>
     </>
   );

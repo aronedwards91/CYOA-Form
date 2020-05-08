@@ -11,9 +11,9 @@ This form doesn't 'build' but infact just hase the b64 outputs of the original w
 ...
 
 #### TODO
-- intro guide/clarity, styling, validation, expanded examples, contents list at top
+- validation, expanded examples, contents list at top
 - testing 
-- Better cost widget?
+- Better cost, color widget?
 
 #### Possible future additions
 - discount logic (requires bigger rewrite)

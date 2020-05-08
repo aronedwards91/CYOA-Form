@@ -6,8 +6,22 @@ import { TextMdCss } from "./fontSizing";
 export const RedX = () => <span style={{ color: "red" }}>X</span>;
 
 export const PadWrapper = styled.div`
-  padding: 16px
-  border: 2px solid darkgrey;
+  padding: 16px;
+`;
+export const FancyBtn = styled.button`
+  line-height: 26px;
+  text-transform: uppercase;
+  letter-spacing: 2.7px;
+  margin: 20px 30px;
+  font-size: 13px;
+  border-radius: 26px 0 26px 0;
+  border: 2px solid lightcyan;
+  padding: 16px;
+  cursor: pointer;
+`;
+export const Header3 = styled.h3`
+  font-weight: normal;
+  margin-left: 16px;
 `;
 export const InputStyled = styled.input`
   ${TextMdCss};
