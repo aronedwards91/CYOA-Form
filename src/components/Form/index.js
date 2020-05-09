@@ -88,7 +88,6 @@ const CyoaForm = () => {
   };
 
   const ContructApp = (data, e) => {
-    console.log('dd--', data);
     if (submitAction === "build") {
       const form = CleanJson(data.formData);
       const newTitle =
