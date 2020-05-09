@@ -149,19 +149,8 @@ export default {
                       title: "New Race",
                     },
                     "char-background": {
-                      type: "object",
-                      title: "New Character Background",
-                      default: null,
-                      properties: {
-                        name: {
-                          type: "string",
-                          title: "Background Title",
-                        },
-                        desc: {
-                          type: "string",
-                          title: "Background Description",
-                        },
-                      },
+                      type: "string",
+                      title: "Character's Background/Origin",
                     },
                     "char-challenge": {
                       type: "object",

@@ -64,7 +64,7 @@ const FormData = {
             effect: {
               cost: [50],
               "body-race": "Human",
-              // "char-background": { name: "English", desc: "Is from England" },
+              "char-background": "Is from England",
             },
           },
           {
@@ -73,7 +73,7 @@ const FormData = {
             effect: {
               cost: [100],
               "body-race": "Martian",
-              // "char-background": { name: "Northern", desc: "From north mars" },
+              "char-background": "From north mars",
             },
           },
         ],
