@@ -13,7 +13,7 @@ import {
   PadWrapper,
   InputStyled,
   FancyBtn,
-  hiddenBtn,
+  HiddenBtn,
   Header3,
 } from "../StyledItems";
 
@@ -67,6 +67,10 @@ const ExportJson = (data) => {
 };
 
 const CyoaForm = () => {
+  const setError = (err) => {
+    window.alert('Errors:' + err.map(item => item.stack));
+  };
+
   const [defaultFormData, setDefaultFormData] = useState(FormData);
   const importData = () => {
     console.log("file uploaded;");
@@ -84,7 +88,7 @@ const CyoaForm = () => {
   };
 
   const ContructApp = (data, e) => {
-    e.preventDefault();
+    console.log('dd--', data);
     if (submitAction === "build") {
       const form = CleanJson(data.formData);
       const newTitle =
@@ -115,9 +119,9 @@ const CyoaForm = () => {
         uiSchema={uiSchema}
         formData={defaultFormData}
         onSubmit={ContructApp}
-        onError={(evt) => console.log("errors", evt)}
+        onError={setError}
       >
-        <hiddenBtn type="submit" id="formSubmitBtn" />
+        <HiddenBtn type="submit" id="formSubmitBtn" />
         <PadWrapper>
           <FancyBtn onClick={buildSite}>Build Website</FancyBtn>
           <FancyBtn onClick={buildJson}>Backup as .json</FancyBtn>

@@ -19,7 +19,7 @@ export const FancyBtn = styled.button`
   padding: 8px 16px;
   cursor: pointer;
 `;
-export const hiddenBtn = styled.button`
+export const HiddenBtn = styled.button`
   display: none;
 `
 export const Header3 = styled.h3`
