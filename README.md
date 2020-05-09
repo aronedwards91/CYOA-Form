@@ -7,8 +7,9 @@ Builds a CYOA standalone html page, same as the one here, except this version is
 This form doesn't 'build' the CYOA app but infact just hase the base64 outputs of the original which then wraps the form's json output.
 
 #### TODO
-- validation, errors above btn, contents list at top, fix title
+- validation, errors above btn, contents list at top
 - testing 
+- update text in pre string
 - Better cost, color widget?
 
 #### Possible future additions
