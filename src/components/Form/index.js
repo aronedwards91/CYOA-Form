@@ -12,7 +12,6 @@ import CharSection from "./charSetupSectionSchema";
 import {
   PadWrapper,
   InputStyled,
-  ImportBtn,
   FancyBtn,
   Header3,
 } from "../StyledItems";

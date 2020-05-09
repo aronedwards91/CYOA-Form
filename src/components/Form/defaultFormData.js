@@ -10,13 +10,13 @@ const FormData = {
   styling: {
     colors: {
       maintext: `#000000`,
-      bgA: "#620046",
-      bgB: "#2E0015",
-      mainBorder: "#4C004C",
-      mainHighlight: "#AAAA0F",
-      charBgA: "#902337",
-      charBgB: "#3726A4",
-      charText: "#162406",
+      bgA: "#d395d3",
+      bgB: "#70BA65",
+      mainBorder: "#520135",
+      mainHighlight: "#C4DAC2",
+      charBgA: "#36C2A3",
+      charBgB: "#409575",
+      charText: "#160006",
       charBorder: "#43CC00",
     },
     layout: {
@@ -26,14 +26,14 @@ const FormData = {
     },
     cyoa: {
       backgroundImgObjectFit: "cover",
-      backgroundGradient: `yellow, orange, red`, // String, list of choices as per css linear-gradient spec
+      backgroundGradient: `#fc98cd, #66abce, #98cdfe`, // String, list of choices as per css linear-gradient spec
     },
     themeing: {
       fontName: "Arial",
       fontScaling: 1.21, // adjust font size
-      sectionCornerRadius: "3px", //for curved corners, use 5~20px, for straight user 0px
+      sectionCornerRadius: "8px", //for curved corners, use 5~20px, for straight user 0px
       bordersWidth: "3px",
-      borderStyle: "dashed",
+      borderStyle: "solid",
     },
   },
   cyoa: {
@@ -64,6 +64,7 @@ const FormData = {
             effect: {
               cost: [50],
               "body-race": "Human",
+              // "char-background": { name: "English", desc: "Is from England" },
             },
           },
           {
@@ -72,12 +73,13 @@ const FormData = {
             effect: {
               cost: [100],
               "body-race": "Martian",
+              // "char-background": { name: "Northern", desc: "From north mars" },
             },
           },
         ],
       },
       {
-        name: "1/ Challenge",
+        name: "2/ Challenge",
         description: "Uh Oh..",
         style: "boxes",
         buy: {
@@ -93,6 +95,10 @@ const FormData = {
               "char-challenge": {
                 name: "asteroid",
                 desc: "destruction.",
+              },
+              "body-ability": {
+                name: "Loud Scream",
+                desc: "Scream loudly.",
               },
             },
           },
@@ -117,6 +123,60 @@ const FormData = {
                   quantity: 1,
                 },
               ],
+            },
+          },
+        ],
+      },
+      {
+        name: "3/ Items",
+        description: "Stuff",
+        style: "smallboxes",
+        buy: {
+          unique: false,
+          max: 3,
+        },
+        choices: [
+          {
+            name: "Buddies",
+            description: "Bring ya buddies",
+            effect: {
+              cost: [0, 1],
+              "char-allies": {
+                name: "Buddies",
+                desc: "Somewhat helpful.",
+                quantity: 5,
+              },
+              "char-drawback": {
+                name: "Nuisance",
+                desc: "Your buddies make numerous poor desicions.",
+              },
+            },
+          },
+          {
+            name: "Guns",
+            description: "Guns are cool",
+            effect: {
+              cost: [0, 1],
+              "inv-items": [
+                {
+                  name: "Guns",
+                  desc: "Big guns.",
+                  quantity: 2,
+                },
+              ],
+            },
+          },
+          {
+            name: "Knowledge",
+            description: "You know stuff",
+            effect: {
+              cost: [0, 1],
+              misc: {
+                key: "knowledge",
+                name: "Guns",
+                desc: "Big guns.",
+                quantity: 2,
+              },
             },
           },
         ],

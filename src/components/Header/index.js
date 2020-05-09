@@ -6,7 +6,7 @@ const Header = () => (
     <Headline>CYOA Form </Headline>
     <Intro>
       {
-        "This Form is a simply way to custom build your own CYOA html page apps, the resulting page will be entirely self-contained and can be shared as a file or hosted on a webpage(as can this form if downloaded from it's github page ). The form is ready with some example values for guidance, and so that it can immediately be tested. "
+        "This Form is a simply way to custom build your own CYOA html page apps, the resulting page will be entirely self-contained and can be shared as a file or hosted on a webpage(as can this form if downloaded from it's github page ). The form is ready with some example values for guidance, and so that it can immediately be tested. At the bottom of this page you can also backup & reimport your work as a .json file."
       }
     </Intro>
     <SmLink
