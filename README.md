@@ -4,14 +4,10 @@ Builds a CYOA standalone html page, same as the one here, except this version is
 
 ### Notes
 
-This form doesn't 'build' but infact just hase the b64 outputs of the original which then wrap the form's json output.
-
-## Embedding Everything , why & how
-
-...
+This form doesn't 'build' the CYOA app but infact just hase the base64 outputs of the original which then wraps the form's json output.
 
 #### TODO
-- validation, expanded examples, contents list at top
+- validation, errors above btn, contents list at top, fix title
 - testing 
 - Better cost, color widget?
 
