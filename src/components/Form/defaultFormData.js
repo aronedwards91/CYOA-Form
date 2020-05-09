@@ -173,9 +173,9 @@ const FormData = {
               cost: [0, 1],
               misc: {
                 key: "knowledge",
-                name: "Guns",
-                desc: "Big guns.",
-                quantity: 2,
+                name: "Reading",
+                desc: "Know big words.",
+                quantity: 1,
               },
             },
           },

@@ -1,14 +1,16 @@
 body #root form fieldset {
-  border: 2px solid #1a8b95;
+  border: 1px solid #1a8b95;
   border-radius: 6px;
-  padding: 16px 20px;
+  padding: 16px 12px;
   margin-top: 12px;
 }
+
 fieldset .field:not(.field-object) {
   padding: 4px 8px;
   border-bottom: 1px solid aliceblue;
   margin-bottom: 8px;
 }
+
 fieldset .field:last-child {
   border-bottom: 1px solid transparent;
 }
@@ -28,6 +30,15 @@ legend {
   white-space: pre-line;
   max-width: 80%;
   line-height: 1.5;
+}
+
+.form-control {
+  width: 360px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #0088cc;
+  background: #e6f7ff;
+  font-size: calc(0.7rem + 0.3vw);
 }
 
 label {

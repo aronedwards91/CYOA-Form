@@ -57,8 +57,10 @@ const uiSchema = {
     },
     selections: {
       items: {
+        description: { "ui:widget": "textarea" },
         choices: {
           items: {
+            description: { "ui:widget": "textarea" },
             img: { "ui:widget": CustomWidgets.ImgFileWidget },
             effect: {
               "ui:FieldTemplate": CustomField,
