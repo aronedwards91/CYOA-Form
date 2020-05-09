@@ -5,7 +5,7 @@ export default {
     purchasing: {
       type: "array",
       title: "Purchasing Points",
-      minItems: 1,
+      minItems: 0,
       uniqueItems: true,
       description:
         "To setup point purchasing, with which choices will be bought, setup at least one, and at most 4 (more will break mobile styling).",

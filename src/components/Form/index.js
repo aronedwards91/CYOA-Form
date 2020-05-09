@@ -14,12 +14,12 @@ import {
   InputStyled,
   FancyBtn,
   hiddenBtn,
-  Header3
+  Header3,
 } from "../StyledItems";
 
 const BackupString = {
   backup: "backup",
-  build: "build"
+  build: "build",
 };
 const formId = "cyoaform";
 
@@ -29,16 +29,16 @@ const schema = {
   properties: {
     charSetup: CharSection,
     cyoa: ChoiceSection,
-    styling: StylingSection
-  }
+    styling: StylingSection,
+  },
 };
 
-const CleanJson = data => {
+const CleanJson = (data) => {
   const ChoicesData = data.cyoa.selections;
 
-  ChoicesData.forEach(choiceType => {
-    choiceType.choices.forEach(choice => {
-      Object.keys(choice.effect).forEach(key => {
+  ChoicesData.forEach((choiceType) => {
+    choiceType.choices.forEach((choice) => {
+      Object.keys(choice.effect).forEach((key) => {
         const Effect = choice.effect[key];
         // removes empty arrays
         if (key === "inv-items" && choice.effect["inv-items"].length === 0) {
@@ -58,7 +58,7 @@ const CleanJson = data => {
 };
 
 const importID = "importJump";
-const ExportJson = data => {
+const ExportJson = (data) => {
   createFile(
     JSON.stringify(data.formData),
     `${data.formData.cyoa.header.title}.bkup.json`,
@@ -87,9 +87,13 @@ const CyoaForm = () => {
     e.preventDefault();
     if (submitAction === "build") {
       const form = CleanJson(data.formData);
-
+      const newTitle =
+        data.formData.cyoa.header.title +
+        " | " +
+        data.formData.cyoa.header.author;
+      const decodedPre = window.atob(BuildTextObj.pre);
       const decodedData =
-        window.atob(BuildTextObj.pre) +
+        decodedPre.replace("CYOA - DarkWood", newTitle) +
         JSON.stringify(form) +
         window.atob(BuildTextObj.post);
 
@@ -111,7 +115,7 @@ const CyoaForm = () => {
         uiSchema={uiSchema}
         formData={defaultFormData}
         onSubmit={ContructApp}
-        onError={evt => console.log("errors", evt)}
+        onError={(evt) => console.log("errors", evt)}
       >
         <hiddenBtn type="submit" id="formSubmitBtn" />
         <PadWrapper>
