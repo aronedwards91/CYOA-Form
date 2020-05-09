@@ -98,7 +98,7 @@ const FormData = {
               },
               "body-ability": {
                 name: "Loud Scream",
-                desc: "Scream loudly.",
+                power: "Scream loudly.",
               },
             },
           },

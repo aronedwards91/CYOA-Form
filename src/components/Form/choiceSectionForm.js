@@ -158,11 +158,11 @@ export default {
                       properties: {
                         name: {
                           type: "string",
-                          title: "Background Title",
+                          title: "Title",
                         },
                         desc: {
                           type: "string",
-                          title: "Background Description",
+                          title: "Description",
                         },
                       },
                     },
@@ -172,11 +172,11 @@ export default {
                       properties: {
                         name: {
                           type: "string",
-                          title: "Ability Name",
+                          title: "Name",
                         },
                         power: {
                           type: "string",
-                          title: "Ability Description",
+                          title: "Description/Effect",
                         },
                       },
                     },
